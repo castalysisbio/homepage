@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASTALYSIS BIOSCIENCE | Next-Generation Gene Editing Therapies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* 调整1：Logo文字颜色修改 */
+        .logo h1 {
+            font-size: 24px;
+            color: #FF7F24; /* 活泼橙色 */
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #888888; /* 灰色 */
+            font-weight: 300;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #1a5fb4;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            theight: 2px;
+            background-color: #1a5fb4;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a5fb4 0%, #2ec27e 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #1a5fb4;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #1a5fb4;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #2ec27e;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Platform Section */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .platform-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .platform-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #e8f4fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #1a5fb4;
+            font-size: 28px;
+        }
+        
+        .platform-card h3 {
+            color: #1a5fb4;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .platform-card p {
+            color: #555;
+        }
+        
+        /* Pipeline Section */
+        .pipeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center; /* 新增：表格内容居中对齐 */
+        }
+        
+        .pipeline-table th {
+            background-color: #1a5fb4;
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+        }
+        
+        .pipeline-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pipeline-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pipeline-table tr:hover {
+            background-color: #f5f9ff;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .status-preclinical {
+            background-color: #ffd166;
+            color: #333;
+        }
+        
+        .status-iit {
+            background-color: #06d6a0;
+            color: white;
+        }
+        
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-date {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .news-title {
+            font-size: 18px;
+            color: #1a5fb4;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .news-excerpt {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-info h3 {
+            color: #1a5fb4;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            background-color: #e8f4fd;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a5fb4;
+            font-size: 20px;
+        }
+        
+        .contact-text h4 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .contact-text p {
+            color: #555;
+            font-size: 16px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2ec27e;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #b0b0b0;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h2 {
+                font-size: 30px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .platform-grid, .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pipeline-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <!-- Logo -->
+                    <h1>CASTALYSIS <span>BIOSCIENCE</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#platform">Technology Platform</a></li>
+                        <li><a href="#pipeline">Product Pipeline</a></li>
+                        <li><a href="#news">News & Updates</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Next-Generation Gene Editing Therapies</h2>
+            <p>CASTALYSIS BIOSCIENCE is an innovative biotechnology company dedicated to developing transformative in vivo gene editing therapies with our proprietary alphaCas® platform, aiming for "one treatment, lifelong cure" solutions for patients worldwide.</p>
+            <a href="#about" class="cta-button">Discover Our Technology</a>
+        </div>
+    </section>
+
+    <!-- About Us Section (已删除领导团队+里程碑模块 + 替换为LNP.jpg) -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>We are committed to leveraging globally leading proprietary technology platforms to develop transformative treatments that offer "one-time treatment, lifelong cure" for patients worldwide. Our vision is to become a global leader in gene-coding solutions.</p>
+                    
+                    <h3>Core Technology</h3>
+                    <p>Our proprietary alphaCas® (Cas12n) gene editing system represents a breakthrough in multiple dimensions compared to current mainstream technologies, with clear underlying patents, ultra-compact size, high efficiency and safety, extremely low immunogenicity, and unique targeting selectivity.</p>
+                </div>
+                <div class="about-image">
+                    <!-- 已修改：替换为img文件夹下的LNP.jpg -->
+                    <img src="img/LNP.jpg" alt="Laboratory Environment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Platform Section -->
+    <section id="platform" style="background-color: #f5f9ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technology Platform</h2>
+            </div>
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Clear Patent Position</h3>
+                    <p>alphaCas® is a novel gene editor originally discovered by our scientific founders, completely avoiding patent restrictions of existing technologies like Cas9.</p>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                    </div>
+                    <h3>Ultra-Compact Size</h3>
+                    <p>The alphaCas® protein is less than 500 amino acids, only one-third the size of traditional Cas9, enabling efficient delivery with lower drug doses.</p>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>High Efficiency & Safety</h3>
+                    <p>Achieves >95% editing efficiency in multiple disease-related targets with significantly improved safety profile compared to traditional Cas9 editors.</p>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-allergies"></i>
+                    </div>
+                    <h3>Low Immunogenicity</h3>
+                    <p>Derived from rare deep-sea microorganisms with extremely low pre-existing antibody levels in the human population.</p>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Unique Targeting Selectivity</h3>
+                    <p>Recognizes unique AAN-type PAM sequences, providing significant differentiation from Cas9 (NGG) and Cas12a (TTTV).</p>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3>One-Time Treatment</h3>
+                    <p>Our gene editing medicines aim to achieve "one-shot cure" compared to traditional preventive therapies that require frequent dosing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Pipeline Section -->
+    <section id="pipeline">
+        <div class="container">
+            <div class="section-title">
+                <h2>Product Pipeline</h2>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="pipeline-table">
+                    <thead>
+                        <tr>
+                            <th>Program</th>
+                            <th>Modality</th> <!-- Modality -->
+                            <th>Indication</th>
+                            <th>Stage</th>
+                            <!--  -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CA-1002</strong></td>
+                            <td>Gene Knockout</td>
+                            <td>High-value Rare Disease</td>
+                            <td><span class="status-badge status-iit">IIT / IND Enabling</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CA-1003</strong></td>
+                            <td>Gene Knockout</td>
+                            <td>High-value Chronic Disease</td>
+                            <td><span class="status-badge status-iit">IIT / IND Enabling</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CA-2001</strong></td>
+                            <td>Gene Knock-in</td>
+                            <td>High-value Rare Disease</td>
+                            <td><span class="status-badge status-preclinical">Preclinical Research</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CA-3001</strong></td>
+                            <td>Undisclosed</td> <!-- 修改1：Other Frontier Pipeline改为Undisclosed -->
+                            <td>High-value Rare Disease</td>
+                            <td><span class="status-badge status-preclinical">Preclinical Research</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Updates Section (已删除指定新闻+修改时间) -->
+    <section id="news" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>News & Updates</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">March 2026</div>
+                        <div class="news-title">CASTALYSIS BIOSCIENCE Completes Pre-A Round Financing</div>
+                        <div class="news-excerpt">CASTALYSIS BIOSCIENCE announced the completion of Pre-A round financing from Zeyue Venture Capital, EF Fund, and Med-Fine Capital. The funds will advance IIT research and preparation for formal clinical trials of the lead pipeline.</div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">December 2024</div>
+                        <div class="news-title">Global Exclusive License Agreement with ShanghaiTech University</div>
+                        <div class="news-excerpt">CASTALYSIS BIOSCIENCE signed a global exclusive license agreement with ShanghaiTech University for the patent portfolio related to alphaCas® (Cas12n) and other technologies, securing intellectual property rights for global development and commercialization.</div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">April 2024</div>
+                        <div class="news-title">CASTALYSIS BIOSCIENCE Completes Seed Round Financing</div>
+                        <div class="news-excerpt">CASTALYSIS BIOSCIENCE announced the completion of seed round financing from Med-Fine Capital to advance the research and development of the original ultra-compact and efficient gene editor.</div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">July 2023</div>
+                        <div class="news-title">alphaCas® First Reported in Molecular Cell</div>
+                        <div class="news-excerpt">The alphaCas® (Cas12n) gene editing system was first reported in Molecular Cell by the team led by Professor Quanjiang Ji, representing the first independent CRISPR/Cas gene family excavated by Chinese scientists within China's territory.</div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-content">
+                        <div class="news-date">July 2023</div>
+                        <div class="news-title">Company Foundation</div>
+                        <div class="news-excerpt">CASTALYSIS BIOSCIENCE was founded in July 2023, dedicated to developing original ultra-compact gene editor alphaCas® into safe and efficient in vivo gene therapy drugs to achieve "one-time administration for lifelong cure".</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section (已修改地址+删除Get in Touch) -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <!-- 修改3：删除Get in Touch标题 -->
+                    <p style="margin-bottom: 30px;">We welcome collaborations, partnerships, and inquiries from potential investors, research institutions, and pharmaceutical companies interested in our innovative gene editing technologies.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Address</h4>
+                                <p>No. 99 Haike Road, Zhangjiang Hi-Tech Park, Shanghai, China</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>contact@castalysisbio.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CASTALYSIS BIOSCIENCE</h3>
+                    <p>Developing next-generation gene editing therapies with our proprietary alphaCas® platform to achieve "one treatment, lifelong cure" solutions for patients worldwide.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#about">About Us</a>
+                        <a href="#platform">Technology</a>
+                        <a href="#pipeline">Pipeline</a>
+                        <a href="#news">News</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2026 CASTALYSIS BIOSCIENCE. All rights reserved. | Shanghai Castalysis Bioscience Co., Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Footer links smooth scrolling
+        document.querySelectorAll('.footer-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
